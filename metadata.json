@@ -1,0 +1,6 @@
+{
+  "name": "place- sathi",
+  "description": "Comprehensive student placement preparation portal for tracking DSA progress, aptitude tests, mock interviews, and application status.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

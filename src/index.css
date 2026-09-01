@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  
+  --color-bento-bg: #050505;
+  --color-bento-card: #111111;
+  --color-bento-border: #222222;
+  --color-bento-accent: #7c3aed;
+  --color-bento-muted: #a1a1aa;
+  
+  --color-primary: #7c3aed;
+  --color-primary-container: #1c1033;
+  --color-primary-fixed: #ede9fe;
+  --color-primary-fixed-dim: #c4b5fd;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #a78bfa;
+  
+  --color-secondary: #10b981;
+  --color-secondary-container: #064e3b;
+  --color-secondary-fixed: #d1fae5;
+  --color-secondary-fixed-dim: #6ee7b7;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #10b981;
+  --color-on-secondary-fixed-variant: #047857;
+  
+  --color-tertiary: #6366f1;
+  --color-tertiary-container: #1e1b4b;
+  --color-tertiary-fixed: #e0e7ff;
+  --color-on-tertiary-fixed: #3730a3;
+  --color-on-tertiary-container: #818cf8;
+  
+  --color-background: #050505;
+  --color-surface: #050505;
+  --color-surface-bright: #18181b;
+  --color-surface-dim: #09090b;
+  --color-surface-container-lowest: #111111;
+  --color-surface-container-low: #141414;
+  --color-surface-container: #18181b;
+  --color-surface-container-high: #222222;
+  --color-surface-container-highest: #27272a;
+  
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #a1a1aa;
+  --color-outline: #52525b;
+  --color-outline-variant: #222222;
+  
+  --color-error: #ef4444;
+  --color-error-container: #450a0a;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #f87171;
+}
+
+:root {
+  --bg: #050505;
+  --card: #111111;
+  --border: #222222;
+  --accent: #7c3aed;
+  --text: #ffffff;
+  --muted: #a1a1aa;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #050505;
+    color: #ffffff;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Bento Grid System */
+.bento-card {
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.light .bento-card {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.bento-card:hover {
+  border-color: #333333;
+}
+
+.light .bento-card:hover {
+  border-color: #d4d4d8;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Card Elevation Legacy Mapping */
+.card-elevation {
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 20px;
+}
+
+.light .card-elevation {
+  background-color: #ffffff;
+  border: 1px solid #e4e4e7;
+}
+
+/* Bento Typography & Badges */
+.bento-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a1a1aa;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.light .bento-label {
+  color: #71717a;
+}
+
+.bento-stat {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.light .bento-stat {
+  color: #09090b;
+}
+
+.trend {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.trend-up {
+  background: #10b98120;
+  color: #10b981;
+}
+
+.trend-accent {
+  background: #7c3aed20;
+  color: #a78bfa;
+}
+
+.light .trend-accent {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+/* Bar Chart */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 90px;
+  margin-top: auto;
+}
+
+.bar {
+  flex: 1;
+  background: #7c3aed;
+  border-radius: 4px;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.bar:hover, .bar.active {
+  opacity: 1;
+  box-shadow: 0 0 15px #7c3aed;
+}
+
+/* Progress ring transition */
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.animate-bar {
+  animation: fillBar 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
